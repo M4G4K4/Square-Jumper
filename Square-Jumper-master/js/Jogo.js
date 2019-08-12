@@ -31,6 +31,7 @@ var Jogo = {
     create: function() {
         // adiciona a musica
         musica = game.add.audio("musica",{volume: 0.5});
+        musica.volume = 0.2;
         musica.play(); // musica de fundo começa a tocar
         somMoeda = game.add.audio("somMoeda",{volume: 0.5});
         somMorto = game.add.audio("somMorto",{volume: 0.5});
@@ -266,13 +267,16 @@ var Jogo = {
     },
 
     acertouMoedaSom: function(){
+        somMoeda.volume = 0.2;
         somMoeda.play();
     },
 
     atrasaGameOver: function() { // acontece antes do  gameOver
         if (this.heroi) { // se existir heroi
             this.heroi.animations.play("morre"); // acontece a animacao
+            somMorto.volume = 0.2;
             somMorto.play();
+
             musica.stop(); // para a musica , se não aconteceria que a mesma musica tocaria umas por cima das outras sempre que fizemos replay
             somMoeda.stop();// para a musica da moeda
             this.heroi.body.velocity.y = 10; // se morrer a sua velocidade
