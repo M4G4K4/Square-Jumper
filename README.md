@@ -1,2 +1,2 @@
 # Square Jumper
-Simple javascript browser game using Phaser developed in University.
+Simple javascript browser endless runner game using Phaser developed in University.
